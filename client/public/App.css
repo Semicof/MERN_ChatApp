@@ -1,0 +1,93 @@
+.bgr {
+  background-color: #5b6467;
+  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+}
+
+.bgl {
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+}
+
+.bgc {
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #7f8c8d 74%);
+}
+
+.delete-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: rgb(43, 8, 8);
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.delete-icon:hover{
+    color: rgb(109, 8, 8);
+}
+
+.message-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* CSS for overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+/* CSS for confirm-box */
+.confirm-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
+.confirm-box p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.confirm-box button {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.confirm-box button:hover {
+  opacity: 70%;
+}
+
+.confirm-box button.secondary {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+.confirm-box button.secondary:hover {
+  background-color: #e2e6ea;
+}
+
+.choices-holder{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
