@@ -1,6 +1,6 @@
-export default function Logo() {
+export default function Logo({mode}) {
   return (
-    <div className="text-white font-bold text-xl flex gap-2 p-4 mb-6">
+    <div className={` font-bold text-xl flex gap-2 p-4 mb-6 ${mode==="light"?"text-blue-700":"text-white"}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

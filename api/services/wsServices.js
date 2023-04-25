@@ -20,7 +20,6 @@ const setupWebSocketServer = (server) => {
   
     function setupConnection(connection, req) {
       connection.isAlive = true;
-  
       const cookies = req.headers.cookie;
       if (cookies) {
         const tokenCookieString = cookies.split(';').find(str => str.startsWith('token='));

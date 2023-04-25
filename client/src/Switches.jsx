@@ -2,7 +2,9 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+
+
+const MaterialUISwitch = styled(Switch)(({ theme,isdarkmode }) => ({
     width: 62,
     height: 34,
     padding: 7,
@@ -20,12 +22,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         },
         '& + .MuiSwitch-track': {
           opacity: 1,
-          backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+          backgroundColor: theme.palette.mode === isdarkmode ? '#8796A5' : '#aab4be',
         },
       },
     },
     '& .MuiSwitch-thumb': {
-      backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+      backgroundColor: theme.palette.mode === isdarkmode ? '#003892' : '#f8e00c',
       width: 32,
       height: 32,
       '&:before': {
@@ -44,13 +46,25 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
     '& .MuiSwitch-track': {
       opacity: 1,
-      backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+      backgroundColor: theme.palette.mode === isdarkmode ? '#8796A5' : '#aab4be',
       borderRadius: 20 / 2,
     },
   }));
 
-export default function CustomizedSwitches() {
+export default function CustomizedSwitches({onChange}) {
+  const [isDarkMode, setIsDarkMode] = React.useState("light");
+  const handleChange = (event) => {
+    onChange(event); 
+    const mode = isDarkMode === "dark" ? "light" : "dark";
+    setIsDarkMode(mode); 
+  };
+
   return (
-   <MaterialUISwitch sx={{ m: 1 }} defaultChecked />
+    <MaterialUISwitch
+      sx={{ m: 1 }}
+      defaultChecked
+      onChange={handleChange}
+      isdarkmode = {isDarkMode}
+    />
   );
 }
