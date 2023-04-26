@@ -66,6 +66,7 @@ export default function Chat() {
 
   function sendMessage(ev, file = null) {
     if (ev) ev.preventDefault();
+    if(newMessageText){
     ws.send(
       JSON.stringify({
         recipient: selectedUserId,
@@ -73,11 +74,6 @@ export default function Chat() {
         file,
       })
     );
-    if (file) {
-      axios.get("/messages/" + selectedUserId).then((res) => {
-        setMessages(res.data);
-      });
-    } else {
       setNewMessageText("");
       setMessages((prev) => [
         ...prev,
@@ -88,8 +84,8 @@ export default function Chat() {
           _id: Date.now(),
         },
       ]);
-    }
   }
+}
 
   function handleUser(userId){
     axios.get("/user/"+userId).then((user)=>{

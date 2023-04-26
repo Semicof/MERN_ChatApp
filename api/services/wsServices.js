@@ -63,19 +63,7 @@ const setupWebSocketServer = (server) => {
     async function handleMessage(message, connection) {
       const messageData = JSON.parse(message.toString());
       const {recipient, text, file} = messageData;
-      let filename = null;
-      if (file) {
-        console.log('size', file.data.length);
-        const parts = file.name.split('.');
-        const ext = parts[parts.length - 1];
-        filename = Date.now() + '.'+ext;
-        const path = __dirname + '/uploads/' + filename;
-        const bufferData = new Buffer(file.data.split(',')[1], 'base64');
-        fs.writeFile(path, bufferData, () => {
-          console.log('file saved:'+path);
-        });
-      }
-      if (recipient && (text || file)) {
+      if (recipient && text) {
         const messageDoc = await Message.create({
           sender:connection.userId,
           recipient,
